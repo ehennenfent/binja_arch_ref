@@ -4,12 +4,14 @@
 
 <body>
   <h1> ${arch.name} Cheat Sheet </h1>
-  <h4> Address Size: ${arch.address_size} bytes </h4>
-  <h4> Default Integer Size: ${arch.default_int_size} bytes </h4>
-  <h4> Endianness: ${arch.endianness.name} </h4>
-  <h4> Link Register: ${"None" if 'temp' in arch.link_reg else arch.link_reg} </h4>
-  <h4> Stack Pointer: ${arch.stack_pointer} </h4>
-  <h4> Platform Default Calling Convention: ${arch.standalone_platform.default_calling_convention.name} </h4>
+  <h4> Address Size: </h4> ${arch.address_size} bytes
+  <h4> Default Integer Size: </h4> ${arch.default_int_size} bytes
+  <h4> Endianness: </h4> ${arch.endianness.name}
+  <h4> Link Register: </h4> ${"None" if 'temp' in arch.link_reg else arch.link_reg}
+  <h4> Stack Pointer: </h4> ${arch.stack_pointer}
+  <h4> Platform Default Calling Convention: </h4> ${arch.standalone_platform.default_calling_convention.name}
+
+  <br />
 
   <h2> Calling Conventions </h2>
   % for key in arch.calling_conventions:
@@ -26,14 +28,14 @@
       <p> ${reg} </p>
       % endfor
 
-      <h4> Integer Return Register: ${convention.int_return_reg} </h4>
+      <h4> Integer Return Register:</h4> ${convention.int_return_reg}
 
       <h4> Float Argument Registers: </h4>
       % for reg in convention.float_arg_regs:
       <p> ${reg} </p>
       % endfor
 
-      <h4> Float Return Register: ${convention.float_return_reg} </h4>
+      <h4> Float Return Register:</h4> ${convention.float_return_reg}
       <br />
   % endfor
 
