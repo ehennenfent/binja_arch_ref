@@ -30,6 +30,9 @@
 
       <h4> Integer Return Register:</h4> ${convention.int_return_reg}
 
+      <h4> Sample Function Call </h4>
+      ${convention.int_return_reg} = ${convention.name}(${', '.join(convention.int_arg_regs)})
+
       <h4> Float Argument Registers: </h4>
       % for reg in convention.float_arg_regs:
       <p> ${reg} </p>
