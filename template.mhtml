@@ -9,7 +9,7 @@
   <h4> Endianness: ${arch.endianness.name} </h4>
   <h4> Link Register: ${"None" if 'temp' in arch.link_reg else arch.link_reg} </h4>
   <h4> Stack Pointer: ${arch.stack_pointer} </h4>
-  <h4> Platform Default Calling Convention: ${platform.default_calling_convention.name} </h4>
+  <h4> Platform Default Calling Convention: ${arch.standalone_platform.default_calling_convention.name} </h4>
 
   <h2> Calling Conventions </h2>
   % for key in arch.calling_conventions:
