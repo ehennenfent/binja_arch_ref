@@ -28,7 +28,7 @@
 
       <h4> Integer Return Register: ${convention.int_return_reg} </h4>
 
-      <h4> Float Argument Registers:
+      <h4> Float Argument Registers: </h4>
       % for reg in convention.float_arg_regs:
       <p> ${reg} </p>
       % endfor
