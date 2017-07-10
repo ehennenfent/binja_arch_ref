@@ -21,7 +21,7 @@
       <p> ${reg} </p>
       % endfor
 
-      <h4> Integer Argument Registers: <h4>
+      <h4> Integer Argument Registers: </h4>
       % for reg in convention.int_arg_regs:
       <p> ${reg} </p>
       % endfor
