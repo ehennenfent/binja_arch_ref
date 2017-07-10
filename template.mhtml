@@ -1,0 +1,61 @@
+<html>
+</head>
+</head>
+
+<body>
+  <h1> ${arch.name} Cheat Sheet </h1>
+  <h4> Address Size: ${arch.address_size} bytes </h4>
+  <h4> Default Integer Size: ${arch.default_int_size} bytes </h4>
+  <h4> Endianness: ${arch.endianness.name} </h4>
+  <h4> Link Register: ${"None" if 'temp' in arch.link_reg else arch.link_reg} </h4>
+  <h4> Stack Pointer: ${arch.stack_pointer} </h4>
+  <h4> Platform Default Calling Convention: ${platform.default_calling_convention.name} </h4>
+
+  <h2> Calling Conventions </h2>
+  % for key in arch.calling_conventions:
+      <% convention = arch.calling_conventions[key] %>
+      <h3> ${convention.name} </h3>
+
+      <h4> Caller-Saved Registers: </h4>
+      % for reg in convention.caller_saved_regs:
+      <p> ${reg} </p>
+      % endfor
+
+      <h4> Integer Argument Registers: <h4>
+      % for reg in convention.int_arg_regs:
+      <p> ${reg} </p>
+      % endfor
+
+      <h4> Integer Return Register: ${convention.int_return_reg} </h4>
+
+      <h4> Float Argument Registers:")
+      % for reg in convention.float_arg_regs:
+      <p> ${reg} </p>
+      % endfor
+
+      <h4> Float Return Register: ${convention.float_return_reg} </h4>
+  % endfor
+
+  <h2> Flags and Registers </h2>
+
+  <h3> Flags: </h3>
+  <table>
+  % for flag in arch.flags:
+    <tr>
+      <td>${flag}</td> <td>${arch.flag_roles[flag].name.replace("Role","")}</td>
+    </tr>
+  % endfor
+  </table>
+
+  <h3> Full width registers: </h3>
+  <table>
+  <tr><td>Name</td><td>Bits</td></tr>
+  % for reg in arch.full_width_regs:
+    <tr>
+      <td>${reg}</td> <td>${arch.regs[reg].size * 8}</td>
+    </tr>
+  % endfor
+  </table>
+
+</body>
+</html>
