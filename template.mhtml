@@ -7,7 +7,7 @@
   <h4> Address Size: </h4> ${arch.address_size} bytes
   <h4> Default Integer Size: </h4> ${arch.default_int_size} bytes
   <h4> Endianness: </h4> ${arch.endianness.name}
-  <h4> Link Register: </h4> ${"None" if 'temp' in arch.link_reg else arch.link_reg}
+  <h4> Link Register: </h4> ${arch.link_reg}
   <h4> Stack Pointer: </h4> ${arch.stack_pointer}
   <h4> Platform Default Calling Convention: </h4> ${arch.standalone_platform.default_calling_convention.name}
 
